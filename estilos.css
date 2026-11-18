@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #1b365d;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+header h1 {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.6rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+main {
+    max-width: 960px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+h2 {
+    color: #1b365d;
+    border-bottom: 2px solid #e1e6ed;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+h3 {
+    color: #2c4d75;
+    margin-top: 1.5rem;
+}
+
+.modelo-box {
+    background-color: #eef3f9;
+    border-left: 4px solid #1b365d;
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+.grid-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #1b365d;
+    color: white;
+    border: none;
+    padding: 0.65rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #2a528a;
+}
+
+.error {
+    color: #c0392b;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.resultado-box {
+    margin-top: 1rem;
+    padding: 0.9rem;
+    background-color: #e8f5e9;
+    border-left: 4px solid #2e7d32;
+    border-radius: 4px;
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+}
+
+th, td {
+    border: 1px solid #d0d7de;
+    padding: 0.55rem;
+    text-align: center;
+}
+
+th {
+    background-color: #1b365d;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.analisis-box {
+    margin-top: 1.2rem;
+    background-color: #fff8e1;
+    border-left: 4px solid #f57f17;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+}

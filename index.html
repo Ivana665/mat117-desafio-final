@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT-117 | Matemáticas para La Paz</title>
+   <link rel="stylesheet" href="estilos.css">
+    <!-- Librería MathJax para mostrar fórmulas matemáticas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale5.0">
+    <title>MAT-117 | Matemáticas para La Paz</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Configuración y carga de MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1>MAT-117: Computación Científica</h1>
+        <p>Desafío Final Integrador — Matemáticas aplicadas a problemas reales de La Paz (Gestión 2026-II)</p>
+    </header>
+
+    <main>
+        <!-- ==================== ALTERNATIVA A ==================== -->
+        <section class="card" id="seccion-movilidad">
+            <h2>Alternativa A: ¿Conviene caminar o utilizar transporte en La Paz?</h2>
+            <p><strong>Objetivo:</strong> Comparar el tiempo de traslado y el costo económico entre caminar y usar transporte público (minibús/trufi) en tramos urbanos paceños.</p>
+            
+            <div class="modelo-box">
+                <p><strong>Variables y Unidades:</strong> $d$: distancia (km), $v_c$: velocidad caminando (km/h), $v_t$: velocidad en transporte (km/h), $P$: pasaje (Bs).</p>
+                <p><strong>Modelos Matemáticos:</strong> $t_c(d) = \frac{d}{v_c}$ (horas), $\quad t_t(d) = \frac{d}{v_t}$ (horas), $\quad \Delta t = (t_c - t_t) \cdot 60$ (minutos).</p>
+                <p><strong>Integración Curricular:</strong> <em>Álgebra</em> (despeje de $d$ en punto de equilibrio), <em>Geometría I</em> (distancia rectilínea/recorrido), <em>Cálculo I</em> (tasa de cambio constante $\frac{dt}{dd} = \frac{1}{v}$).</p>
+            </div>
+
+            <form id="form-movilidad" novalidate>
+                <div class="grid-inputs">
+                    <div>
+                        <label for="dist">Distancia $d$ (km):</label>
+                        <input type="number" id="dist" step="0.1" value="2.5" required>
+                    </div>
+                    <div>
+                        <label for="vc">Vel. caminando $v_c$ (km/h):</label>
+                        <input type="number" id="vc" step="0.1" value="4.5" required>
+                    </div>
+                    <div>
+                        <label for="vt">Vel. transporte $v_t$ (km/h):</label>
+                        <input type="number" id="vt" step="0.1" value="15.0" required>
+                    </div>
+                    <div>
+                        <label for="pasaje">Pasaje $P$ (Bs):</label>
+                        <input type="number" id="pasaje" step="0.5" value="2.0" required>
+                    </div>
+                </div>
+                <button type="submit">Calcular Movilidad</button>
+                <p id="error-mov" class="error"></p>
+            </form>
+
+            <div id="res-movilidad" class="resultado-box"></div>
+
+            <h3>Tabla Experimental (5 Pruebas en La Paz)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prueba (Tramo referencial)</th>
+                        <th>$d$ (km)</th>
+                        <th>$v_c$ (km/h)</th>
+                        <th>$v_t$ (km/h)</th>
+                        <th>$t_c$ (min)</th>
+                        <th>$t_t$ (min)</th>
+                        <th>Ahorro $\Delta t$ (min)</th>
+                        <th>Costo (Bs)</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-mov-body"></tbody>
+            </table>
+
+            <div class="analisis-box">
+                <p><strong>Conjetura Heurística:</strong> Para distancias menores a $1.5\text{ km}$ en zonas céntricas con congestión vehicular ($v_t \le 12\text{ km/h}$), el ahorro de tiempo del transporte es menor a $6\text{ minutos}$, por lo que caminar resulta más eficiente económicamente sin pérdida significativa de tiempo.</p>
+                <p><strong>Verificación y Conclusión:</strong> Al evaluar la Prueba 1 ($d = 1.0\text{ km}$), caminar toma $13.3\text{ min}$ y el transporte $5.0\text{ min}$ ($\Delta t = 8.3\text{ min}$). Si sumamos el tiempo de espera del minibús ($\approx 5\text{ min}$), ambos tiempos se igualan. <em>Límite del modelo:</em> asume velocidad constante y no incluye pendientes pronunciadas características de la topografía paceña ni tiempos de espera en parada.</p>
+            </div>
+        </section>
+
+        <!-- ==================== ALTERNATIVA D ==================== -->
+        <section class="card" id="seccion-huerto">
+            <h2>Alternativa D: Diseño de un huerto urbano óptimo</h2>
+            <p><strong>Objetivo:</strong> Determinar las dimensiones de un huerto rectangular cercado con $40\text{ m}$ de malla para maximizar el área de cultivo.</p>
+            
+            <div class="modelo-box">
+                <p><strong>Variables y Unidades:</strong> $x$: largo del huerto (m), $y$: ancho del huerto (m), $P$: perímetro fijo ($40\text{ m}$), $A(x)$: área ($\text{m}^2$).</p>
+                <p><strong>Modelos Matemáticos:</strong> $2x + 2y = 40 \implies y = 20 - x \quad \text{con } x \in (0, 20)$. $\quad A(x) = x(20 - x) = 20x - x^2$.</p>
+                <p><strong>Integración Curricular:</strong> <em>Geometría I</em> (perímetro y área del rectángulo), <em>Álgebra</em> (sustitución de $y$), <em>Cálculo I</em> (optimización: $A'(x) = 20 - 2x = 0 \implies x = 10\text{ m}$, $A''(10) = -2 < 0$ máximo).</p>
+            </div>
+
+            <form id="form-huerto" novalidate>
+                <div class="grid-inputs">
+                    <div>
+                        <label for="largo">Largo $x$ (m) [entre 0 y 20]:</label>
+                        <input type="number" id="largo" step="0.5" value="10" required>
+                    </div>
+                </div>
+                <button type="submit">Calcular Dimensiones</button>
+                <p id="error-huerto" class="error"></p>
+            </form>
+
+            <div id="res-huerto" class="resultado-box"></div>
+
+            <h3>Tabla Experimental (5 Pruebas de Dimensiones)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prueba</th>
+                        <th>Largo $x$ (m)</th>
+                        <th>Ancho $y = 20-x$ (m)</th>
+                        <th>Perímetro (m)</th>
+                        <th>Área $A(x)$ ($\text{m}^2$)</th>
+                        <th>Tasa $A'(x)$</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-huerto-body"></tbody>
+            </table>
+
+            <div class="analisis-box">
+                <p><strong>Conjetura Heurística:</strong> Entre todos los rectángulos de perímetro constante ($40\text{ m}$), el cuadrado ($x = y = 10\text{ m}$) encierra la mayor superficie posible ($100\text{ m}^2$), y el área disminuye simétricamente a medida que $|x - 10|$ aumenta.</p>
+                <p><strong>Verificación y Conclusión:</strong> Las pruebas con $x=6\text{ m}$ y $x=14\text{ m}$ arrojan exactamente $84\text{ m}^2$, mientras que en $x=10\text{ m}$ se alcanza el vértice máximo de $100\text{ m}^2$ (donde la derivada $A'(10)=0$). <em>Límite del modelo:</em> supone un terreno completamente plano, sin obstáculos estructurales ni necesidad de pasillos internos de acceso.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
